@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'directors/index'
-  get 'directors/show'
-  get 'directors/new'
-  get 'directors/edit'
-#  get 'director_form/index'
-#  get 'director_form/show'
-#  get 'director_form/new'
-#  get 'director_form/edit'
-  resources :director_form 
+#  get 'directors/index'
+#  get 'directors/show'
+#  get 'directors/new'
+#  get 'directors/edit'
+  resources :directors
   get 'welcome/index'
   get 'welcome/about'
   root 'welcome#index'
