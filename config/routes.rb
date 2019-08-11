@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'directors/index'
+  get 'directors/show'
+  get 'directors/new'
+  get 'directors/edit'
 #  get 'director_form/index'
 #  get 'director_form/show'
 #  get 'director_form/new'
