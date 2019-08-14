@@ -15,9 +15,14 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Home", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
-        <li class="pull-right"><%= link_to "Sign Up", users_new_path %></li>
         <li><%= link_to "New Audition Form", new_director_path %></li>
         <li><%= link_to "All Audition Notices", directors_path %></li>
+        <% if current_user %>
+          <li class="pull-right"><%= link_to "#{current_user.name} -Sign Out", session_path(current_user), method: :delete %></li>
+        <% else %>
+          <li class="pull-right"><%= link_to "Sign In", new_session_path %></li>
+          <li class="pull-right"><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
       </ul>
       <%= yield %>
     </div>
