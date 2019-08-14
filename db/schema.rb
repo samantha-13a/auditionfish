@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_155003) do
+ActiveRecord::Schema.define(version: 2019_08_14_031053) do
 
   create_table "director_forms", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2019_08_11_155003) do
   create_table "directors", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
