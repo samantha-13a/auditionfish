@@ -12,6 +12,7 @@ class DirectorsController < ApplicationController
   end
 
   def edit
+    @director = Director.find(params[:id])
   end
 
   def create
@@ -27,5 +28,31 @@ class DirectorsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    @director = Director.find(params[:id])
+    @director.title = params[:director][:title]
+    @director.body = params[:director][:body]
+ 
+    if @director.save
+      flash[:notice] = "Your audition notice was updated."
+      redirect_to @director
+    else
+      flash.now[:alert] = "There was an error saving your changes. Please try again."
+      render :edit
+    end
+  end
   
+  def destroy
+    @director = Director.find(params[:id])
+ 
+    if @director.destroy
+      flash[:notice] = "\"#{@director.title}\" was deleted successfully."
+      redirect_to directors_path
+    else
+      flash.now[:alert] = "There was an error deleting this audition notice."
+      render :show
+    end
+  end
+
 end
