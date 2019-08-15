@@ -1,0 +1,10 @@
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to director.title, director_path(director) %>
+    </h4>
+    <small>
+      submitted <%= time_ago_in_words(director.created_at) %> ago by <%= director.user.name %> <br>
+    </small>
+  </div>
+</div>

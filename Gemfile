@@ -24,7 +24,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda'
   gem 'shoulda-matchers'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_bot', '~> 4.8', '>= 4.8.2'
 end
 
 group :production do
