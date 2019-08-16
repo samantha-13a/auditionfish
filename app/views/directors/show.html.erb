@@ -9,8 +9,13 @@
   <div class="col-md-8">
     <p><%= @director.body %></p>
   </div>
-    <%= link_to "Edit", edit_director_path(@director), class: 'btn btn-success' %>
-    <%= link_to "Delete", @director, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this notice?'} %> 
+
+  <div>
+    <% if user_is_authorized_for_director?(@director) %>
+      <%= link_to "Edit", edit_director_path(@director), class: 'btn btn-success' %>
+      <%= link_to "Delete", @director, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this notice?'} %> 
+    <% end %>
   </div>
+
 </div>
     

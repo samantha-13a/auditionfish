@@ -1,5 +1,6 @@
 class DirectorsController < ApplicationController
   before_action :require_sign_in, except: :show
+#  before_action :authorize_user, except: [:show, :new, :create]
 
   def index
     @directors = Director.all
@@ -58,4 +59,17 @@ class DirectorsController < ApplicationController
     end
   end
 
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+
+  #def authorize_user
+  #  director = Director.find(params[:id])
+  #  unless current_user == director.user
+  #    flash[:alert] = "You are not authorized to do that."
+  #    redirect_to [director]
+  #  end
+  #end  
 end
