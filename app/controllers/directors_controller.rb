@@ -1,4 +1,6 @@
 class DirectorsController < ApplicationController
+  before_action :require_sign_in, except: :show
+
   def index
     @directors = Director.all
   end
@@ -19,6 +21,7 @@ class DirectorsController < ApplicationController
     @director = Director.new
     @director.title = params[:director][:title]
     @director.body = params[:director][:body]
+    @director.user = current_user
 
     if @director.save
       flash[:notice] = "Audition notice was saved!"
